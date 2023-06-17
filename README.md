@@ -4,7 +4,7 @@
 
 Language: Python
 
-Environment Setup: A virtual environment was not used as no modules were installed. Only math was used to easily get the ceiling of calculations (7/2 ~= 4), but this could have been done manually as well.
+Environment Setup: A virtual environment was not used as no modules were installed. Only math was imported to easily get the ceiling of calculations (7/2 ~= 4), but this could have been done manually as well.
 
 
 ## Background and Assumptions
@@ -38,8 +38,8 @@ The function for comparing and assigning child direction is externalised, so oth
 #### Tree Structure
 
 The BST is a dictionary or dictionaries, like so: BST = {ID: {'value':value, 'left_child_ID': left_child_ID, 'right_child_ID': right_child_ID},
-                                                    ...
-                                                    } 
+                                                    \n...
+                                                    \n} 
 
 Each node is linked to its children by IDs. 
 
