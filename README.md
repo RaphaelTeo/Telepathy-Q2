@@ -31,7 +31,7 @@ Since each node is given an ID, duplicate values can be handled.
 
 The function for comparing and assigning child direction is externalised, so other metrics can be used (alphabetical, complex calculations, etc).
 
-### Tree Structure
+#### Tree Structure
 
 The BST is a dictionary or dictionaries, like so: BST = {ID: {'value':value, 'left_child_ID':left_child_ID, 'right_child_ID':right_child_ID},
                                                     ...
@@ -44,12 +44,10 @@ The search function uses the current node ID (starting from the origin node) to 
 After which, it reads the child ID which will be used as the current node ID in the next iteration. This loops until there are no more children in the required side (left/right), at which point it inserts this value with its new ID. The current node's child ID is updated with this new ID.
 
 
-
 ## Considerations and Issues Encountered
 
 1. Duplicates are handled by just treating it as "lower" i.e. move to left child node.
 2. At first I wanted to implement a list of "one-legged nodes", a priority FIFO list to jump to when inserting the next value. However, I realised that the BST has to be searched from the top sequentially, so parachuting a high value in a lower value branch will cause it to never be found.
-3. The function to generate the ideal BST can also handle duplicates values and an even number of values.
 
 #### Input arrangement
 =====
