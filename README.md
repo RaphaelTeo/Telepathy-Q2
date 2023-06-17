@@ -38,8 +38,8 @@ The function for comparing and assigning child direction is externalised, so oth
 #### Tree Structure
 
 The BST is a dictionary or dictionaries, like so: BST = {ID: {'value':value, 'left_child_ID': left_child_ID, 'right_child_ID': right_child_ID},
-                                                    \n...
-                                                    \n} 
+                                                    ...
+                                                    } 
 
 Each node is linked to its children by IDs. 
 
@@ -50,84 +50,3 @@ The search function uses the current node ID (starting from the origin node) and
 
 1. Duplicates are handled by just treating it as "lower" i.e. move to left child node.
 2. At first I wanted to implement a list of "one-legged nodes", a priority FIFO list to jump to when inserting the next value. However, I realised that the BST has to be searched from the top sequentially, so parachuting a high value in a lower value branch will cause it to never be found.
-
-#### Input arrangement
-
-=====
-1 item(s) in stack: **[[1, 2, 3, 4, 5, 6, 7]]**
-Processing 7 items: [1, 2, 3, 4, 5, 6, 7]
-Added 4. Split [1, 2, 3] & [5, 6, 7]. Stack size 2
-Ordered list: [4]
-=====
-2 item(s) in stack: [[1, 2, 3], [5, 6, 7]]
-Processing 3 items: [1, 2, 3]
-Added 2. Split [1] & [3]. Stack size 3
-Ordered list: [4, 2]
-=====
-3 item(s) in stack: [[5, 6, 7], [1], [3]]
-Processing 3 items: [5, 6, 7]
-Added 6. Split [5] & [7]. Stack size 4
-Ordered list: [4, 2, 6]
-=====
-4 item(s) in stack: [[1], [3], [5], [7]]
-Processing 1 items: [1]
-Added 1. No more splitting. Stack size 3
-Ordered list: [4, 2, 6, 1]
-=====
-3 item(s) in stack: [[3], [5], [7]]
-Processing 1 items: [3]
-Added 3. No more splitting. Stack size 2
-Ordered list: [4, 2, 6, 1, 3]
-=====
-2 item(s) in stack: [[5], [7]]
-Processing 1 items: [5]
-Added 5. No more splitting. Stack size 1
-Ordered list: [4, 2, 6, 1, 3, 5]
-=====
-1 item(s) in stack: [[7]]
-Processing 1 items: [7]
-Added 7. No more splitting. Stack size 0
-Ordered list: **[4, 2, 6, 1, 3, 5, 7]**
-
-#### Input arrangement with a duplicate
-
-=====
-**1 item(s) in stack: [[1, 2, 3, 4, 4, 5, 6, 7]]**
-Processing 8 items: [1, 2, 3, 4, 4, 5, 6, 7]
-Added 4. Split [1, 2, 3] & [4, 5, 6, 7]. Stack size 2
-Ordered list: [4]
-=====
-2 item(s) in stack: [[1, 2, 3], [4, 5, 6, 7]]
-Processing 3 items: [1, 2, 3]
-Added 2. Split [1] & [3]. Stack size 3
-Ordered list: [4, 2]
-=====
-3 item(s) in stack: [[4, 5, 6, 7], [1], [3]]
-Processing 4 items: [4, 5, 6, 7]
-Added 5. Split [4] & [6, 7]. Stack size 4
-Ordered list: [4, 2, 5]
-=====
-4 item(s) in stack: [[1], [3], [4], [6, 7]]
-Processing 1 items: [1]
-Added 1. No more splitting. Stack size 3
-Ordered list: [4, 2, 5, 1]
-=====
-3 item(s) in stack: [[3], [4], [6, 7]]
-Processing 1 items: [3]
-Added 3. No more splitting. Stack size 2
-Ordered list: [4, 2, 5, 1, 3]
-=====
-2 item(s) in stack: [[4], [6, 7]]
-Processing 1 items: [4]
-Added 4. No more splitting. Stack size 1
-Ordered list: [4, 2, 5, 1, 3, 4]
-=====
-1 item(s) in stack: [[6, 7]]
-Processing 2 items: [6, 7]
-Added 6. Split [] & [7]. Stack size 1
-Ordered list: [4, 2, 5, 1, 3, 4, 6]
-=====
-1 item(s) in stack: [[7]]
-Processing 1 items: [7]
-Added 7. No more splitting. Stack size 0
-Ordered list: **[4, 2, 5, 1, 3, 4, 6, 7]**
